@@ -11,7 +11,8 @@ kotlin {
                 jvmTarget = "1.8"
             }
         }
-        publishLibraryVariants("release")
+        publishLibraryVariants("debug", "release")
+        apply(from = "$rootDir/publish.gradle")
     }
 
     listOf(
@@ -47,20 +48,6 @@ android {
         }
         getByName("debug") {
             isMinifyEnabled = false
-        }
-    }
-    publishing {
-        singleVariant("release") {}
-    }
-}
-
-afterEvaluate {
-    android.libraryVariants.forEach { variant ->
-        publishing.publications.create(variant.name, MavenPublication::class.java) {
-            from(components.findByName(variant.name))
-            groupId = "com.mikeni"
-            artifactId = "multicore"
-            version = "1.0.4"
         }
     }
 }
