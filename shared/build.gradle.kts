@@ -60,7 +60,7 @@ afterEvaluate {
             from(components.findByName(variant.name))
             groupId = "com.mikeni"
             artifactId = "multicore"
-            version = "1.0.2"
+            version = "1.0.3"
         }
     }
 }
