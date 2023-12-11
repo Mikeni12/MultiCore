@@ -11,13 +11,13 @@ kotlin {
                 jvmTarget = "1.8"
             }
         }
-        publishLibraryVariants("release", "debug")
+        publishLibraryVariants("release")
     }
 
     listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
+            iosX64(),
+            iosArm64(),
+            iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
@@ -50,13 +50,7 @@ android {
         }
     }
     publishing {
-        singleVariant("debug") {
-            withSourcesJar()
-            withJavadocJar()
-        }
-        singleVariant("release") {
-
-        }
+        singleVariant("release") {}
     }
 }
 
@@ -64,10 +58,9 @@ afterEvaluate {
     android.libraryVariants.forEach { variant ->
         publishing.publications.create(variant.name, MavenPublication::class.java) {
             from(components.findByName(variant.name))
-
             groupId = "com.mikeni"
             artifactId = "multicore"
-            version = "1.0.0"
+            version = "1.0.2"
         }
     }
 }
