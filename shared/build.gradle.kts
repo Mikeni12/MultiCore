@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
     id("maven-publish")
+    id("signing")
 }
 
 kotlin {
@@ -11,8 +12,7 @@ kotlin {
                 jvmTarget = "1.8"
             }
         }
-        publishLibraryVariants("debug", "release")
-        apply(from = "$rootDir/publish.gradle")
+        publishAllLibraryVariants()
     }
 
     listOf(
@@ -50,4 +50,5 @@ android {
             isMinifyEnabled = false
         }
     }
+    apply(from = "$rootDir/publish.gradle")
 }
