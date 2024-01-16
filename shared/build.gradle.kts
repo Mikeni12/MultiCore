@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.BitcodeEmbeddingMode.BITCODE
+
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
@@ -31,7 +33,14 @@ kotlin {
         version = "1.0"
         summary = "Library to display platform"
         homepage = "https://github.com/Mikeni12/MultiCore/"
-        name = "CoreCocoaPod"
+        name = "MultiCoreCocoaPod"
+
+        framework {
+            baseName = "MultiCoreFramework"
+            export(project(":shared"))
+
+            embedBitcode(BITCODE)
+        }
     }
 
     sourceSets {
