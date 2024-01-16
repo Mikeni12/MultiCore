@@ -1,20 +1,20 @@
 Pod::Spec.new do |spec|
-    spec.name                     = 'MultiCoreCocoaPod'
+    spec.name                     = 'shared'
     spec.version                  = '1.0'
     spec.homepage                 = 'https://github.com/Mikeni12/MultiCore/'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
     spec.license                  = ''
     spec.summary                  = 'Library to display platform'
-    spec.vendored_frameworks      = 'build/cocoapods/framework/MultiCoreFramework.framework'
+    spec.vendored_frameworks      = 'build/cocoapods/framework/shared.framework'
     spec.libraries                = 'c++'
                 
                 
                 
-    if !Dir.exist?('build/cocoapods/framework/MultiCoreFramework.framework') || Dir.empty?('build/cocoapods/framework/MultiCoreFramework.framework')
+    if !Dir.exist?('build/cocoapods/framework/shared.framework') || Dir.empty?('build/cocoapods/framework/shared.framework')
         raise "
 
-        Kotlin framework 'MultiCoreFramework' doesn't exist yet, so a proper Xcode project can't be generated.
+        Kotlin framework 'shared' doesn't exist yet, so a proper Xcode project can't be generated.
         'pod install' should be executed after running ':generateDummyFramework' Gradle task:
 
             ./gradlew :shared:generateDummyFramework
@@ -24,12 +24,12 @@ Pod::Spec.new do |spec|
                 
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':shared',
-        'PRODUCT_MODULE_NAME' => 'MultiCoreFramework',
+        'PRODUCT_MODULE_NAME' => 'shared',
     }
                 
     spec.script_phases = [
         {
-            :name => 'Build MultiCoreCocoaPod',
+            :name => 'Build shared',
             :execution_position => :before_compile,
             :shell_path => '/bin/sh',
             :script => <<-SCRIPT

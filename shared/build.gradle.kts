@@ -33,10 +33,10 @@ kotlin {
         version = "1.0"
         summary = "Library to display platform"
         homepage = "https://github.com/Mikeni12/MultiCore/"
-        name = "MultiCoreCocoaPod"
+        name = "shared"
 
         framework {
-            baseName = "MultiCoreFramework"
+            baseName = "shared"
             export(project(":shared"))
 
             embedBitcode(BITCODE)

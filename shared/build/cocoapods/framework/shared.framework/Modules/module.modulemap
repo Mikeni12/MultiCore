@@ -1,4 +1,4 @@
-framework module MultiCoreFramework {
+framework module shared {
   umbrella header "placeholder.h"
 
   export *
