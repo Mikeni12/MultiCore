@@ -34,6 +34,7 @@ kotlin {
         summary = "Library to display platform"
         homepage = "https://github.com/Mikeni12/MultiCore/"
         name = "shared"
+        ios.deploymentTarget = "13.0"
 
         framework {
             baseName = "shared"
