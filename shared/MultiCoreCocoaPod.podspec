@@ -6,15 +6,15 @@ Pod::Spec.new do |spec|
     spec.authors                  = ''
     spec.license                  = ''
     spec.summary                  = 'Library to display platform'
-    spec.vendored_frameworks      = 'build/cocoapods/framework/MultiCoreFrameworkk.framework'
+    spec.vendored_frameworks      = 'build/cocoapods/framework/MultiCoreFramework.framework'
     spec.libraries                = 'c++'
                 
                 
                 
-    if !Dir.exist?('build/cocoapods/framework/MultiCoreFrameworkk.framework') || Dir.empty?('build/cocoapods/framework/MultiCoreFrameworkk.framework')
+    if !Dir.exist?('build/cocoapods/framework/MultiCoreFramework.framework') || Dir.empty?('build/cocoapods/framework/MultiCoreFramework.framework')
         raise "
 
-        Kotlin framework 'MultiCoreFrameworkk' doesn't exist yet, so a proper Xcode project can't be generated.
+        Kotlin framework 'MultiCoreFramework' doesn't exist yet, so a proper Xcode project can't be generated.
         'pod install' should be executed after running ':generateDummyFramework' Gradle task:
 
             ./gradlew :shared:generateDummyFramework
@@ -24,7 +24,7 @@ Pod::Spec.new do |spec|
                 
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':shared',
-        'PRODUCT_MODULE_NAME' => 'MultiCoreFrameworkk',
+        'PRODUCT_MODULE_NAME' => 'MultiCoreFramework',
     }
                 
     spec.script_phases = [
